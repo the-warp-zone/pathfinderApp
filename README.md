@@ -6,7 +6,6 @@
 Allow users to compare routes from various services. Namely...
  - Google
  - TomTom
- - Leaflet
  
  Users can compare the distances and routes provided to them by these services. Users should be able to see how long it takes to travel on received routes.
 
@@ -16,3 +15,4 @@ Allow users to compare routes from various services. Namely...
  - Compare user input, average user input, and API route time
  - Include Apple API for further comparison
  - I suppose we can include Bing too
+ - Leaflet
