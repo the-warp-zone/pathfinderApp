@@ -1,21 +1,3 @@
-# project1 BETA branch
-
-This is the devBranch.
-
-Push your branch to the devBranch, NOT master branch
-
-If you push to the master branch, a puppy will go hungry.
-Don't starve the puppies.
-
-Push here instead.
-
-
-====================
-
-# project1 Master Branch
-
-## Product: Pathfinder App
-
 ### Purpose:
 Allow users to compare routes from various services. Namely...
  - Google
@@ -34,3 +16,6 @@ Allow users to compare routes from various services. Namely...
  - Include Apple API for further comparison
  - I suppose we can include Bing too
  - Leaflet
+
+#### Project Board:
+https://github.com/the-warp-zone/pathfinderApp/projects/1
