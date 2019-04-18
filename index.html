@@ -1,36 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pathfinder</title>
-    <!-- Material CDN -->
-        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-
-    <!-- Material Font  -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- Style Sheet -->
-    <link rel="stylesheet" href="/assets/style/style.css">
-    <link rel="icon" type="image/gif" href="assets/style/images/"/>
-
-</head>
-<body>
-    <div>
-
-
-
-
-    </div>
-
-    <!-- JS, Popper.js, and jQuery -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <head>
+                <!--Import Google Icon Font-->
+                <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                <!--Import materialize.css-->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+          
+                <!--Let browser know website is optimized for mobile-->
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <title>Materialize Sandbox</title>
         
-    <!-- JavaScript Source -->
-        <script src="/assets/javascript/app.js"></script>
+                   <!-- Style Sheet -->
+                <link rel="stylesheet" href="/assets/style/style.css">
+                <link rel="icon" type="image/gif" href="assets/style/images/"/>
+
+
+
+        </head>
+<body>
+        <div class="container">        
+            <!-- MOBILE COLLAPSE -->
+            <nav>
+              <div class="blue nav-wrapper">
+                <a href="#!" class="brand-logo">Pathfinder</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                  <li><a href="#">Login</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">History</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                  <li><a href="#">Login</a></li>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">History</a></li>
+                </ul>
+              </div>
+            </nav>
+        <br>   </br>
+            <!-- SEARCHBAR -->
+            <nav>
+                <div class="blue nav-wrapper">
+                    <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                    </form>
+                </div>
+                </nav>
+
+        </div><!-- ./container -->
+
+            
+
+    <!--jQuery and Popper.js  -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+       <script>
+          $(".button-collapse").sideNav();
+       </script>
 </body>
 
 
