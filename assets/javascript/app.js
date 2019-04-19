@@ -29,6 +29,7 @@ $(document).on("click", "#submit", submitFunction);
 
 function submitFunction() {
   event.preventDefault();
+  $("#google-card").toggle();
   startInput = $("#starting-location").val();
   endInput = $("#ending-location").val();
 
@@ -36,6 +37,23 @@ function submitFunction() {
   console.log(endInput);
   initMap();
   calculateRoute(startInput, endInput);
+
+  //https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyAkhYXD2uGMFang4DjMfM4rR8qfnEDhM6c
+  var queryURL =
+    "https://maps.googleapis.com/maps/api/directions/json?origin=" +
+    startInput +
+    "&destination=" +
+    endInput +
+    "&key=AIzaSyAkhYXD2uGMFang4DjMfM4rR8qfnEDhM6c";
+
+  $.ajax({
+    url: queryURL,
+    dataType: "json",
+    method: "GET"
+  }).then(function(response) {
+    var results = response.data;
+    console.log(results);
+  });
 }
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
