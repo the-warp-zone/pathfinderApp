@@ -1,4 +1,5 @@
 // Variables
+var map;
 let startInput = "";
 let endInput = "";
 let distance = "";
@@ -24,12 +25,52 @@ let appleObj = {
 //   }
 // });
 
+$(document).on("click", "#submit", submitFunction);
+
 function submitFunction() {
+  event.preventDefault();
   startInput = $("#starting-location").val();
   endInput = $("#ending-location").val();
 
   console.log(startInput);
   console.log(endInput);
+  initMap();
+  calculateRoute(startInput, endInput);
+}
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+}
+
+function calculateRoute(start, end) {
+  var myOptions = {
+    zoom: 10,
+    center: new google.maps.LatLng(30.26, -97.74),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  // Draw the map
+  var mapObject = new google.maps.Map(
+    document.getElementById("map"),
+    myOptions
+  );
+
+  var directionsService = new google.maps.DirectionsService();
+  var directionsRequest = {
+    origin: start,
+    destination: end,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING,
+    unitSystem: google.maps.UnitSystem.METRIC
+  };
+  directionsService.route(directionsRequest, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      new google.maps.DirectionsRenderer({
+        map: mapObject,
+        directions: response
+      });
+    } else console.log("Unable To Find Root");
+  });
 }
 
 /* Google Map Functions */
