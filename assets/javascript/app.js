@@ -1,3 +1,37 @@
+// Variables
+let startInput = "";
+let endInput = "";
+let distance = "";
+let googleObj = {
+  distance: "",
+  route: ""
+};
+let tomTomObj = {
+  distance: "",
+  route: ""
+};
+let appleObj = {
+  distance: "",
+  route: ""
+};
+
+// $(document).on("keypress", "#ending-event", function(event) {
+//   event.preventDefault();
+
+//   var keycode = event.keycode ? event.keycode : event.which;
+//   if (keycode === "13") {
+//     submitFunction();
+//   }
+// });
+
+function submitFunction() {
+  startInput = $("#starting-location").val();
+  endInput = $("#ending-location").val();
+
+  console.log(startInput);
+  console.log(endInput);
+}
+
 /* Google Map Functions */
 
 /*
