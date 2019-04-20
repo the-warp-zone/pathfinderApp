@@ -92,7 +92,9 @@ function calculateRoute(start, end) {
     } else console.log("Unable To Find Root");
     
   });
-  L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
+
+}
+L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
 
 // 'map' refers to a <div> element with the ID map
 L.mapquest.map('hybrid', {
@@ -100,6 +102,4 @@ L.mapquest.map('hybrid', {
   layers: L.mapquest.tileLayer('hybrid'),
   zoom: 12
 });
-}
-
 
