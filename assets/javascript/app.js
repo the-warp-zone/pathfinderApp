@@ -71,7 +71,7 @@ function calculateRoute(start, end) {
         directions: response
       });
     } else console.log("Unable To Find Root");
-    console.log(response);
+    
   });
 }
 
