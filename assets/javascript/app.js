@@ -1,5 +1,6 @@
 // Variables
 var map;
+var map2;
 let startInput = "";
 let endInput = "";
 let distance = "";
@@ -89,5 +90,16 @@ function calculateRoute(start, end) {
         directions: response
       });
     } else console.log("Unable To Find Root");
+    
   });
+  L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
+
+// 'map' refers to a <div> element with the ID map
+L.mapquest.map('hybrid', {
+  center: [30.266926, -97.750519],
+  layers: L.mapquest.tileLayer('hybrid'),
+  zoom: 12
+});
 }
+
+
