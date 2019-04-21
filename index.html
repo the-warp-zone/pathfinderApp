@@ -7,6 +7,9 @@
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
           <!--Icon Import-->
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <!--Mapquest-->
+          <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+          <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
           <!--Let browser know website is optimized for mobile-->
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
           <title>Materialize Sandbox</title>
@@ -76,26 +79,26 @@
             <br>
             <br>
             <br>
-            <div class="row">
+            <div class="row" id="map-row">
               <div class="col s12 m6">
-                <div class="card">
+                <div class="card" id="google-card">
                   <div id = "map">
                   </div>
                     
                     <a class="btn-floating halfway-fab waves-effect waves-light green" id = "google-link"><i class="material-icons">G</i></a>
                   
-                  <div class="card-content">
+                  <div class="card-content google-card">
                     <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                   </div>
                 </div>
               </div>
-
+              
               <div class="col s12 m6">
-                <div class="card">
-                  <div id = "map">
+                <div class="card" id="mapquest-card">
+                  <div id = "hybrid">
                   </div>
                     
-                    <a class="btn-floating halfway-fab waves-effect waves-light red" id = "tomtom-link"><i class="material-icons">T</i></a>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red" id = "tomtom-link"><i class="material-icons">M</i></a>
                   
                   <div class="card-content">
                     <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
@@ -105,7 +108,7 @@
             </div>
             <!-- <br>   <div id="map"></div> </br> -->
 
-
+            
               
           </div><!-- ./container -->
 
@@ -148,7 +151,12 @@
       
       </script>
       <!--jQuery and Popper.js  -->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+        crossorigin="anonymous">
+      </script>
+      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
 
