@@ -1,0 +1,22 @@
+/* Google Map Styles */
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+#hybrid {
+  height: 500px;
+  width: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+

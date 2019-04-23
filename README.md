@@ -1,7 +1,3 @@
-# project1 Master Branch
-
-## Product: Pathfinder App
-
 ### Purpose:
 Allow users to compare routes from various services. Namely...
  - Google
@@ -20,3 +16,6 @@ Allow users to compare routes from various services. Namely...
  - Include Apple API for further comparison
  - I suppose we can include Bing too
  - Leaflet
+
+#### Project Board:
+https://github.com/the-warp-zone/pathfinderApp/projects/1
