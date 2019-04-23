@@ -29,14 +29,29 @@ function submitFunction() {
   initMap();
   calculateRoute(startInput, endInput);
 
-  var originalURL =
+  var googleURL =
     "https://maps.googleapis.com/maps/api/directions/json?origin=" +
     startInput +
     "&destination=" +
     endInput +
     "&key=AIzaSyAkhYXD2uGMFang4DjMfM4rR8qfnEDhM6c";
 
-  var queryURL = "https://cors-anywhere.herokuapp.com/" + originalURL;
+  var queryURL = "https://cors-anywhere.herokuapp.com/" + googleURL;
+
+  var mapquestURL = "http://open.mapquestapi.com/directions/v2/route?key=C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0&from=" +
+  startInput +
+  "&to=" +
+  endInput;
+
+  var queryURL2 = "https://cors-anywhere.herokuapp.com/" + mapquestURL;
+
+  $.ajax({
+    url: queryURL2,
+    dataType: "json",
+    method: "GET"
+  }).then(function(response2) {
+    console.log(response2);
+  });  
 
   $.ajax({
     url: queryURL,
