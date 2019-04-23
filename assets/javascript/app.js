@@ -1,6 +1,6 @@
 // Variables
 var map;
-var map2;
+
 let startInput = "";
 let endInput = "";
 let distance = "";
@@ -28,6 +28,7 @@ function submitFunction() {
   console.log(endInput);
   initMap();
   calculateRoute(startInput, endInput);
+  calculateRoute2(startInput, endInput);
 
   var googleURL =
     "https://maps.googleapis.com/maps/api/directions/json?origin=" +
@@ -68,16 +69,18 @@ function submitFunction() {
 
     // Display Data on card
     $(".google-card").html(
-      `<p>Origin:${startInput}</p><br><p>Destination: ${endInput}</p><br><p>Distance: ${distance}</p><br><p>Duration: ${duration}</p>`
+      `<p>Origin: ${startInput}</p><br><p>Destination: ${endInput}</p><br><p>Distance: ${distance}</p><br><p>Duration: ${duration}</p>`
     );
   });
 }
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
+    center: { lat: 30.266926, lng: -97.750519 },
+    zoom: 12
   });
 }
+
+initMap();
 
 function calculateRoute(start, end) {
   var myOptions = {
@@ -105,16 +108,24 @@ function calculateRoute(start, end) {
         directions: response
       });
     } else console.log("Unable To Find Root");
-    
   });
-
 }
+
+function calculateRoute2() {
+
+        L.mapquest.directions().route({
+          start: startInput,
+          end: endInput
+        });
+};
+
 L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
 
-// 'map' refers to a <div> element with the ID map
 L.mapquest.map('hybrid', {
   center: [30.266926, -97.750519],
   layers: L.mapquest.tileLayer('hybrid'),
   zoom: 12
 });
+
+
 
