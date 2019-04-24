@@ -1,21 +1,7 @@
 // Variables
 var map;
-
 let startInput = "";
 let endInput = "";
-let distance = "";
-let googleObj = {
-  distance: "",
-  route: ""
-};
-let tomTomObj = {
-  distance: "",
-  route: ""
-};
-let appleObj = {
-  distance: "",
-  route: ""
-};
 
 $(document).on("click", "#submit", submitFunction);
 
@@ -23,9 +9,6 @@ function submitFunction() {
   event.preventDefault();
   startInput = $("#starting-location").val();
   endInput = $("#ending-location").val();
-
-  console.log(startInput);
-  console.log(endInput);
   initMap();
   calculateRoute(startInput, endInput);
   calculateRoute2(startInput, endInput);
@@ -39,10 +22,11 @@ function submitFunction() {
 
   var queryURL = "https://cors-anywhere.herokuapp.com/" + googleURL;
 
-  var mapquestURL = "http://open.mapquestapi.com/directions/v2/route?key=C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0&from=" +
-  startInput +
-  "&to=" +
-  endInput;
+  var mapquestURL =
+    "http://open.mapquestapi.com/directions/v2/route?key=C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0&from=" +
+    startInput +
+    "&to=" +
+    endInput;
 
   var queryURL2 = "https://cors-anywhere.herokuapp.com/" + mapquestURL;
 
@@ -51,21 +35,22 @@ function submitFunction() {
     dataType: "json",
     method: "GET"
   }).then(function(response2) {
-    console.log(response2);
-  });  
+    let route = response2.route;
+    let distance = route.distance;
+    let duration = route.formattedTime;
+    $(".mapquest-card").html(
+      `<p>Origin: ${startInput}</p><br><p>Destination: ${endInput}</p><br><p>Distance: ${distance}</p><br><p>Duration: ${duration}</p>`
+    );
+  });
 
   $.ajax({
     url: queryURL,
     dataType: "json",
     method: "GET"
   }).then(function(response) {
-    console.log(response);
     let routes = response.routes;
-    console.log(routes);
     let distance = routes[0].legs[0].distance.text;
-    console.log(distance);
     let duration = routes[0].legs[0].duration.text;
-    console.log(duration);
 
     // Display Data on card
     $(".google-card").html(
@@ -107,26 +92,21 @@ function calculateRoute(start, end) {
         map: mapObject,
         directions: response
       });
-    } else console.log("Unable To Find Root");
+    } else console.log("Error: Unable To Find Root");
   });
 }
 
 function calculateRoute2() {
-  
-        L.mapquest.directions().route({
-          start: startInput,
-          end: endInput
-        });
-        
-};
+  L.mapquest.directions().route({
+    start: startInput,
+    end: endInput
+  });
+}
 
-L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
+L.mapquest.key = "C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0";
 
-L.mapquest.map('hybrid', {
+L.mapquest.map("hybrid", {
   center: [30.266926, -97.750519],
-  layers: L.mapquest.tileLayer('hybrid'),
+  layers: L.mapquest.tileLayer("hybrid"),
   zoom: 12
 });
-
-
-
