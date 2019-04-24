@@ -112,11 +112,12 @@ function calculateRoute(start, end) {
 }
 
 function calculateRoute2() {
-
+  
         L.mapquest.directions().route({
           start: startInput,
           end: endInput
         });
+        
 };
 
 L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
