@@ -1,9 +1,17 @@
 // Variables
 var map;
+var map2;
+var mapQuestLayer;
 let startInput = "";
 let endInput = "";
 
 $(document).on("click", "#submit", submitFunction);
+
+$(function () {
+  $("form").submit(function () {
+    return false;
+  });
+});
 
 function submitFunction() {
   event.preventDefault();
@@ -34,7 +42,7 @@ function submitFunction() {
     url: queryURL2,
     dataType: "json",
     method: "GET"
-  }).then(function(response2) {
+  }).then(function (response2) {
     let route = response2.route;
     let distance = route.distance;
     let duration = route.formattedTime;
@@ -47,8 +55,9 @@ function submitFunction() {
     url: queryURL,
     dataType: "json",
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     let routes = response.routes;
+    console.log(response);
     let distance = routes[0].legs[0].distance.text;
     let duration = routes[0].legs[0].duration.text;
 
@@ -58,9 +67,13 @@ function submitFunction() {
     );
   });
 }
+
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 30.266926, lng: -97.750519 },
+    center: {
+      lat: 30.266926,
+      lng: -97.750519
+    },
     zoom: 12
   });
 }
@@ -86,7 +99,7 @@ function calculateRoute(start, end) {
     travelMode: google.maps.DirectionsTravelMode.DRIVING,
     unitSystem: google.maps.UnitSystem.METRIC
   };
-  directionsService.route(directionsRequest, function(response, status) {
+  directionsService.route(directionsRequest, function (response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       new google.maps.DirectionsRenderer({
         map: mapObject,
@@ -100,12 +113,23 @@ function calculateRoute2() {
   L.mapquest.directions().route({
     start: startInput,
     end: endInput
+  }, function (err, data) {
+    if (err.message)
+      console.log(err);
+    else {
+      if (mapQuestLayer) {
+        map2.removeLayer(mapQuestLayer);
+      }
+      mapQuestLayer = L.mapquest.directionsLayer({
+        directionsResponse: data
+      }).addTo(map2);
+    }
   });
 }
 
 L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
 
-L.mapquest.map("hybrid", {
+map2 = L.mapquest.map("hybrid", {
   center: [30.266926, -97.750519],
   layers: L.mapquest.tileLayer("hybrid"),
   zoom: 12
