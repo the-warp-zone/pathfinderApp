@@ -47,7 +47,7 @@ loginForm.addEventListener('submit', (e) => {
     instance.close();
     loginForm.reset();
     loginForm.querySelector('.error').innerHTML = '';
-    window.open ('/main.html','_self',false);
+    window.open ('main.html','_self',false);
   }).catch(err => {
     loginForm.querySelector('.error').innerHTML = err.message;
   });
