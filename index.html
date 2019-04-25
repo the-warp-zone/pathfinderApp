@@ -1,175 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-          <!--Import Google Icon Font-->
-          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-          <!--Import materialize.css-->
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-          <!--Icon Import-->
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-          <!--Mapquest-->
-          <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-          <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-          <!--Let browser know website is optimized for mobile-->
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <title>Materialize Sandbox</title>
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Icon Import-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Mapquest-->
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <link rel="stylesheet" href="assets/style/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-             <!-- Style Sheet -->
-          <link rel="stylesheet" href="./assets/style/style.css">
-          <link rel="icon" type="image/gif" href="./assets/style/images/"/>
-
-
-
+    <title>PathFinder</title>
   </head>
   <body>
 
-      <nav>
-        
-          <div class="blue nav-wrapper" id = "nav-bar">
-            <div class = "container">
-            <a href="#!" class="brand-logo">Pathfinder</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="#">Login</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="history.html">History</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <li><a href="#">Login</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="history.html">History</a></li>
-            </ul>
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <div class="card">
+          <div class="card-image">
+            <img src="assets/style/images/pathfinder_image_logo.png">
+            <span class="card-title">PathFinder</span>
+          </div>
+          <div class="card-content">
+            <p>Allow users to compare routes...</p>
+          </div>
+          <div class="card-action">
+            <a href="#">
+                <button data-target="idlogin" class="btn modal-trigger">Log In</button>
+                <button data-target="idsignup" class="btn modal-trigger">Sign-Up</button>
+             </a>
           </div>
         </div>
-        </nav>
+      </div>
+    </div>
+              
+    
 
-          <div class="container">        
-              <!-- MOBILE COLLAPSE -->
-              
-          <br>   </br>
-              <!-- SEARCHBAR -->
-              <h1>Start</h1>
-              <nav>
-                  <div class="blue nav-wrapper">
-                      <form>
-                      <div class="input-field">
-                          <input id="starting-location" type="search" required>
-                          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                          <i class="material-icons">close</i>
-                      </div>
-                      </form>
-                  </div>
-              </nav>
-              <br>   </br>
-              <h1>Finish</h1>
-              <nav>
-                <div class="blue nav-wrapper">
-                    <form>
-                    <div class="input-field">
-                        <input id="ending-location" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
-                    </div>
-                    <a class="blue waves-effect waves-light btn-large" id = "submit"><i class="material-icons right">directions</i>Submit</a>
-                    </form>
-                    
-                </div>
-            </nav>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="row" id="map-row">
-              <div class="col s12 m6">
-                <div class="card" id="google-card">
-                  <div id = "map">
-                  </div>
-                    
-                    <a class="btn-floating halfway-fab waves-effect waves-light green" id = "google-link"><i class="material-icons">G</i></a>
-                  
-                  <div class="card-content google-card">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col s12 m6">
-                <div class="card" id="mapquest-card">
-                  <div id = "hybrid">
-                  </div>
-                    
-                    <a class="btn-floating halfway-fab waves-effect waves-light red" id = "tomtom-link"><i class="material-icons">M</i></a>
-                  
-                  <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                  </div>
-                </div>
-              </div>
+    
+
+    <div id="idlogin" class="modal">
+
+      <form id="login-form" action="/main.html">
+        <div class="imgcontainer">
+          <span id="idlogin-close">
+            <i class="material-icons">close</i>
+          </span>
+          <img src="./assets/style/images/pathfinder_black.png"  height="80" width="80" alt="PathFinder" class="pathfinder">
+        </div>
+        <div class="modal-content">
+          <h4>Log In</h4>
+          <br />
+          <div class="input-field">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your password</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0" type="submit">Log In</button>
+          <p class="error pink-text center-align"></p>
+        </div>
+      </form>
+    </div>
+
+
+    <div id="idsignup" class="modal">
+
+      <form id="signup-form" action='/main.html'>
+        <div class="imgcontainer">
+          <span id="idsignup-close">
+            <i class="material-icons">close</i>
+          </span>
+          <img src="./assets/style/images/pathfinder_black.png"  height="80" width="80" alt="PathFinder" class="pathfinder">
+        </div>
+
+        <div class="container">
+          
+            <div class="input-field">
+              <input type="email" id="signup-email" required />
+              <label for="signup-email">Email address</label>
             </div>
-            <!-- <br>   <div id="map"></div> </br> -->
-
-            
-              
-          </div><!-- ./container -->
-
-          <!-- Footer -->
-          <footer class="blue page-footer">
-              <div class="container">
-                <div class="row">
-                  <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                  </div>
-                  
-                </div>
-              </div>
-              <div class="footer-copyright">
-                <div class="container">
-                © 2019 Copyright
-                <a class="grey-text text-lighten-4 right" href="#!">Links if needed</a>
-                </div>
-              </div>
-            </footer>
-         
-
-      <!--Firebase-->
-
-      <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
-        <script>
-
-      // Initialize Firebase
-
-        var config = {
-          apiKey: "AIzaSyCxJSd-mfkbdkDez8a7LaeOjCXxtBDUPF8",
-          authDomain: "project1-48284.firebaseapp.com",
-          databaseURL: "https://project1-48284.firebaseio.com",
-          projectId: "project1-48284",
-          storageBucket: "project1-48284.appspot.com",
-          messagingSenderId: "145616063343"
-          };
-      firebase.initializeApp(config);
+            <div class="input-field">
+              <input type="password" id="signup-password" required />
+              <label for="signup-password">Choose password</label>
+            </div>
+            <div class="input-field">
+              <input type="text" id="signup-bio" required />
+              <label for="signup-bio">One Line Bio</label>
+            </div>
+            <button class="btn yellow darken-2 z-depth-0" type="submit">Sign up</button>
+            <p class="error pink-text center-align"></p>
       
-      </script>
-      <!--jQuery and Popper.js  -->
-      <script
-        src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-        crossorigin="anonymous">
-      </script>
-      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        </div>
+      </form>  
+    </div>
 
 
-         <script>
-            $(".button-collapse").sideNav();
-         </script>
-      <!-- Google APIs -->
-      <script
-        src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAkhYXD2uGMFang4DjMfM4rR8qfnEDhM6c"
-        async
-        defer
-      ></script>
-    <!-- JavaScript Source -->
-      <script src="./assets/javascript/app.js"></script>
-  </body>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-functions.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCxJSd-mfkbdkDez8a7LaeOjCXxtBDUPF8",
+      authDomain: "project1-48284.firebaseapp.com",
+      databaseURL: "https://project1-48284.firebaseio.com",
+      projectId: "project1-48284",
+      storageBucket: "project1-48284.appspot.com",
+      messagingSenderId: "145616063343"
+    };
+    firebase.initializeApp(config);
+
+      // Make auth and firestore reference
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      // update firestore settings
+      // db.settings({ timestampsInSnapshots: true });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/javascript/auth.js"></script>
+    <script src="assets/javascript/index.js"></script>
+    </body>
 </html>
