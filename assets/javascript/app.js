@@ -16,7 +16,7 @@ $(document).on("click", "#google-link", function () {
 });
 
 $(document).on("click", "#mapQuest-link", function () {
-  if (googleBool) {
+  if (mapQuestBool) {
     var mapQuestURL = "http://www.mapquest.com/directions?saddr=" + startInput + "&daddr=" + endInput + "&maptype=map";
     window.location.href = mapQuestURL;
   }
