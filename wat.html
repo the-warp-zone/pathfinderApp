@@ -1,0 +1,91 @@
+<html>
+
+<head>
+
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.0/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.0/mapquest.css" />
+    <script type="text/javascript">
+        var L, r1, r2, dl, map, directions;
+
+        function showroute(data) {
+            "use strict";
+            var legs, maneuvers, nartext = "";
+            // label markers
+            dl.markers[0].bindPopup("origin");
+            dl.markers[1].bindPopup("destination");
+            // get legs
+            legs = data.route.legs;
+            // for each leg
+            legs.forEach(function (leg) {
+                // get maneuvers
+                maneuvers = leg.maneuvers;
+                // for each maneuver
+                maneuvers.forEach(function (maneuver) {
+                    // build the list of maneuver narrarive text
+                    nartext = nartext + maneuver.narrative + "<br/>";
+                });
+            });
+            // display list of maneuver narrative text
+            document.getElementById("nar").innerHTML = nartext;
+        }
+
+
+
+        function doit() {
+            "use strict";
+            // let's get to routing (again)
+            directions.route({
+                    start: document.getElementById("origin").value,
+                    end: document.getElementById("destination").value
+                },
+                // directions.route callback function
+                function (err, data) {
+                    if (err.message) {
+                        document.getElementById("nar").innerHTML = err;
+                    } else {
+                        // remove old route, if there is one
+                        if (dl) {
+                            map.removeLayer(dl);
+                        }
+                        // let MQ put the route ribbon on the map
+                        dl = L.mapquest.directionsLayer({
+                            directionsResponse: data
+                        }).addTo(map);
+                        dl.on("directions_changed", showroute);
+                        showroute(data);
+                    }
+                });
+        }
+
+        function start() {
+            "use strict";
+            L.mapquest.key = "C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0";
+            map = L.mapquest.map("map", {
+                center: [0, 0],
+                layers: L.mapquest.tileLayer("map"),
+                zoom: 0
+            });
+            directions = L.mapquest.directions();
+            doit();
+        }
+    </script>
+
+</head>
+
+
+
+<body style="border: 0; margin: 0;" onload="start();">
+
+    <div id="map" style="width: 800px; height: 530px;"></div>
+
+    <input type="text" id="origin" value="denver, co" />
+
+    <input type="text" id="destination" value="golden, co" />
+
+    <input type="submit" onclick="doit();" value="doit" />
+
+    <div id="nar" style="width: 800px; height: 530px;"></div>
+
+</body>
+
+</html>
