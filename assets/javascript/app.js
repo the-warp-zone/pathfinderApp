@@ -4,8 +4,23 @@ var map2;
 var mapQuestLayer;
 let startInput = "";
 let endInput = "";
+var googleBool = false;
+var mapQuestBool = false;
 
 $(document).on("click", "#submit", submitFunction);
+$(document).on("click", "#google-link", function () {
+  if (googleBool) {
+    var googleURL = "https://www.google.com/maps/dir/?api=1&origin=" + startInput + "&destination=" + endInput + "&travelmode=driving";
+    window.location.assign(googleURL);
+  }
+});
+
+$(document).on("click", "#mapQuest-link", function () {
+  if (googleBool) {
+    var mapQuestURL = "http://www.mapquest.com/directions?saddr=" + startInput + "&daddr=" + endInput + "&maptype=map";
+    window.location.href = mapQuestURL;
+  }
+});
 
 $(function () {
   $("form").submit(function () {
@@ -14,6 +29,8 @@ $(function () {
 });
 
 function submitFunction() {
+  googleBool = true;
+  mapQuestBool = true;
   event.preventDefault();
   startInput = $("#starting-location").val();
   endInput = $("#ending-location").val();
@@ -43,6 +60,7 @@ function submitFunction() {
     dataType: "json",
     method: "GET"
   }).then(function (response2) {
+    console.log(response2);
     let route = response2.route;
     let distance = route.distance;
     let duration = route.formattedTime;
