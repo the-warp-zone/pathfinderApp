@@ -103,7 +103,7 @@ function calculateRoute2() {
   });
 }
 
-L.mapquest.key = "C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0";
+L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
 
 L.mapquest.map("hybrid", {
   center: [30.266926, -97.750519],
