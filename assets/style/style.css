@@ -20,3 +20,14 @@ body {
     flex: 1 0 auto;
   }
 
+span {
+  position: absolute;
+top: 5px;
+left: 5px;
+}
+
+.pathfinder{
+    margin: 0 auto;
+    display: block;
+    margin-top: 15px;
+}
