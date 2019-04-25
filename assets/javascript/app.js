@@ -143,6 +143,7 @@ function calculateRoute2() {
       }).addTo(map2);
     }
   });
+
 }
 
 L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
