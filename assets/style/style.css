@@ -31,3 +31,16 @@ left: 5px;
     display: block;
     margin-top: 15px;
 }
+
+.center {
+  
+  margin-left: 45%;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  
+}
+
+h1 {
+  font-family: 'Times New Roman', Times, serif
+}
