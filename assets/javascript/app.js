@@ -13,8 +13,6 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
-/*let logoutBtn = document.querySelector('#logoutBtn');
-let mobileLogoutBtn = document.querySelector('#mobileLogoutBtn');*/
 
 document.getElementById("logoutBtn").addEventListener("click", fbaseLogout);
 document.getElementById("mobileLogoutBtn").addEventListener("click", fbaseLogout);
