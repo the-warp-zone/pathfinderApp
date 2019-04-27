@@ -7,6 +7,24 @@ let endInput = "";
 var googleBool = false;
 var mapQuestBool = false;
 
+firebase.auth().onAuthStateChanged(user => {
+  if(!user) {
+    window.location = 'index.html'; //If User is not logged in, redirect to login page
+  }
+});
+
+/*let logoutBtn = document.querySelector('#logoutBtn');
+let mobileLogoutBtn = document.querySelector('#mobileLogoutBtn');*/
+
+document.getElementById("logoutBtn").addEventListener("click", fbaseLogout);
+document.getElementById("mobileLogoutBtn").addEventListener("click", fbaseLogout);
+
+function fbaseLogout() {
+  firebase.auth().signOut();
+}
+
+
+
 $(document).on("click", "#submit", submitFunction);
 $(document).on("click", "#google-link", function () {
   if (googleBool) {
