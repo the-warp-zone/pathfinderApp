@@ -18,6 +18,7 @@
     <title>PathFinder</title>
   </head>
   <body>
+
     <div class="row">
       <div class="col s12 m6 offset-m3">
         <div class="card">
@@ -37,8 +38,13 @@
         </div>
       </div>
     </div>
+              
+    
+
+    
 
     <div id="idlogin" class="modal">
+
       <form id="login-form" action="/main.html">
         <div class="imgcontainer">
           <span id="idlogin-close">
@@ -63,7 +69,9 @@
       </form>
     </div>
 
+
     <div id="idsignup" class="modal">
+
       <form id="signup-form" action='/main.html'>
         <div class="imgcontainer">
           <span id="idsignup-close">
@@ -71,7 +79,9 @@
           </span>
           <img src="./assets/style/images/pathfinder_black.png"  height="80" width="80" alt="PathFinder" class="pathfinder">
         </div>
+
         <div class="container">
+          
             <div class="input-field">
               <input type="email" id="signup-email" required />
               <label for="signup-email">Email address</label>
@@ -86,15 +96,20 @@
             </div>
             <button class="btn yellow darken-2 z-depth-0" type="submit">Sign up</button>
             <p class="error pink-text center-align"></p>
+      
         </div>
       </form>  
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-functions.js"></script>
-    <script>
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-functions.js"></script>
+  <script>
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyCxJSd-mfkbdkDez8a7LaeOjCXxtBDUPF8",
@@ -105,14 +120,17 @@
       messagingSenderId: "145616063343"
     };
     firebase.initializeApp(config);
+
       // Make auth and firestore reference
-    const auth = firebase.auth();
-    const db = firebase.firestore();
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+    
       // update firestore settings
       // db.settings({ timestampsInSnapshots: true });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/javascript/auth.js"></script>
     <script src="assets/javascript/index.js"></script>
-  </body>
+    </body>
 </html>
