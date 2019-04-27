@@ -23,7 +23,7 @@ function fbaseLogout() {
 }
 
 $(document).on("click", "#submit", submitFunction);
-$(document).on("click", "#google-link", function() {
+$(document).on("click", "#google-link", function () {
   if (googleBool) {
     var googleURL =
       "https://www.google.com/maps/dir/?api=1&origin=" +
@@ -35,7 +35,7 @@ $(document).on("click", "#google-link", function() {
   }
 });
 
-$(document).on("click", "#mapQuest-link", function() {
+$(document).on("click", "#mapQuest-link", function () {
   if (mapQuestBool) {
     var mapQuestURL =
       "http://www.mapquest.com/directions?saddr=" +
@@ -47,8 +47,8 @@ $(document).on("click", "#mapQuest-link", function() {
   }
 });
 
-$(function() {
-  $("form").submit(function() {
+$(function () {
+  $("form").submit(function () {
     return false;
   });
 });
@@ -84,7 +84,7 @@ function submitFunction() {
     url: queryURL2,
     dataType: "json",
     method: "GET"
-  }).then(function(response2) {
+  }).then(function (response2) {
     let route = response2.route;
     let distance = route.distance;
     let duration = route.formattedTime;
@@ -97,7 +97,7 @@ function submitFunction() {
     url: queryURL,
     dataType: "json",
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     let routes = response.routes;
     let distance = routes[0].legs[0].distance.text;
     let duration = routes[0].legs[0].duration.text;
@@ -140,7 +140,7 @@ function calculateRoute(start, end) {
     travelMode: google.maps.DirectionsTravelMode.DRIVING,
     unitSystem: google.maps.UnitSystem.METRIC
   };
-  directionsService.route(directionsRequest, function(response, status) {
+  directionsService.route(directionsRequest, function (response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       new google.maps.DirectionsRenderer({
         map: mapObject,
@@ -151,12 +151,11 @@ function calculateRoute(start, end) {
 }
 
 function calculateRoute2() {
-  L.mapquest.directions().route(
-    {
+  L.mapquest.directions().route({
       start: startInput,
       end: endInput
     },
-    function(err, data) {
+    function (err, data) {
       if (err.message) console.log(err);
       else {
         if (mapQuestLayer) {
@@ -178,4 +177,25 @@ map2 = L.mapquest.map("hybrid", {
   center: [30.266926, -97.750519],
   layers: L.mapquest.tileLayer("hybrid"),
   zoom: 12
+});
+
+
+
+var database = firebase.database();
+// write
+database.ref('users/' + userId).set(user);
+
+// read / listen
+database.child("users").on('value', function (snapshot) {
+  $(document).on("click", "#submit", submitFunction);
+
+  function writeUserData(userId, startInput, endInput, initMap(calculateRoute, calculateRoute2)) {
+    firebase.database().ref('users/' + userId).set({
+      startInput: startInput,
+      endInput: endInput,
+      initMap: calculateRoute,
+      calculateRoute2,
+      database.ref('users/' + userId).set(snapshot);
+    });
+  }
 });
