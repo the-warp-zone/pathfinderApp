@@ -44,15 +44,30 @@ span {
 h1 {
   /* font-family: 'Times New Roman', Times, serif */
   font-family: 'Roboto', sans-serif;
+  color: #1b5e20;
 }
 
 #about {
-background-color: white;
-margin-top: 20px;
-margin-bottom: 20px;
-padding: 20px;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 h4 {
   font-size: 175%;
+}
+
+nav {
+  /* color: #fff; */
+  color: black;
+  background-color: #ee6e73;
+  width: 100%;
+  height: 56px;
+  /* line-height: 56px; */
+}
+
+#google-icon,
+#mapQuest-icon {
+  font-family: 'Roboto', sans-serif;
 }
