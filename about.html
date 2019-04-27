@@ -53,12 +53,25 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container" id = "about">
     <!-- MOBILE COLLAPSE -->
 
-    <br> </br>
+    
     <!-- SEARCHBAR -->
     <h1>About</h1>
+    <hr>
+    <br>
+    <h4>Pathfinder is an app created with the intention of comparing multiple map API's and showing all of the info on one page,
+        it gives the distance and time of both Google maps and MapQuest.
+    </h4>
+
+    <h4>Once you choose your route you can hit the "G" or "M" buttons at the bottom of the maps to direct you towards your chosen
+        map, and it will automatically redirects you towards your app if you are on a mobile device or to the website if you are on your computer.
+    </h4>
+
+    <h4>This App was created by the combined efforts of The Warp Zone.</h4>
+    <br>
+    
     <!-- <br>   <div id="map"></div> </br> -->
 
 
@@ -87,7 +100,22 @@
     </div>
   </footer>
 
+<!--Firebase-->
 
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+
+         var config = {
+          apiKey: "AIzaSyCxJSd-mfkbdkDez8a7LaeOjCXxtBDUPF8",
+          authDomain: "project1-48284.firebaseapp.com",
+          databaseURL: "https://project1-48284.firebaseio.com",
+          projectId: "project1-48284",
+          storageBucket: "project1-48284.appspot.com",
+         messagingSenderId: "145616063343"
+        };
+        firebase.initializeApp(config);
+    </script>
   
   <!--jQuery and Popper.js  -->
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"

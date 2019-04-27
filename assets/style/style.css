@@ -45,3 +45,14 @@ h1 {
   /* font-family: 'Times New Roman', Times, serif */
   font-family: 'Roboto', sans-serif;
 }
+
+#about {
+background-color: white;
+margin-top: 20px;
+margin-bottom: 20px;
+padding: 20px;
+}
+
+h4 {
+  font-size: 175%;
+}
