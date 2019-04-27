@@ -8,38 +8,47 @@ var googleBool = false;
 var mapQuestBool = false;
 
 firebase.auth().onAuthStateChanged(user => {
-  if(!user) {
-    window.location = 'index.html'; //If User is not logged in, redirect to login page
+  if (!user) {
+    window.location = "index.html"; //If User is not logged in, redirect to login page
   }
 });
 
-
 document.getElementById("logoutBtn").addEventListener("click", fbaseLogout);
-document.getElementById("mobileLogoutBtn").addEventListener("click", fbaseLogout);
+document
+  .getElementById("mobileLogoutBtn")
+  .addEventListener("click", fbaseLogout);
 
 function fbaseLogout() {
   firebase.auth().signOut();
 }
 
-
-
 $(document).on("click", "#submit", submitFunction);
-$(document).on("click", "#google-link", function () {
+$(document).on("click", "#google-link", function() {
   if (googleBool) {
-    var googleURL = "https://www.google.com/maps/dir/?api=1&origin=" + startInput + "&destination=" + endInput + "&travelmode=driving";
+    var googleURL =
+      "https://www.google.com/maps/dir/?api=1&origin=" +
+      startInput +
+      "&destination=" +
+      endInput +
+      "&travelmode=driving";
     window.location.assign(googleURL);
   }
 });
 
-$(document).on("click", "#mapQuest-link", function () {
+$(document).on("click", "#mapQuest-link", function() {
   if (mapQuestBool) {
-    var mapQuestURL = "http://www.mapquest.com/directions?saddr=" + startInput + "&daddr=" + endInput + "&maptype=map";
+    var mapQuestURL =
+      "http://www.mapquest.com/directions?saddr=" +
+      startInput +
+      "&daddr=" +
+      endInput +
+      "&maptype=map";
     window.location.href = mapQuestURL;
   }
 });
 
-$(function () {
-  $("form").submit(function () {
+$(function() {
+  $("form").submit(function() {
     return false;
   });
 });
@@ -75,8 +84,7 @@ function submitFunction() {
     url: queryURL2,
     dataType: "json",
     method: "GET"
-  }).then(function (response2) {
-    console.log(response2);
+  }).then(function(response2) {
     let route = response2.route;
     let distance = route.distance;
     let duration = route.formattedTime;
@@ -89,9 +97,8 @@ function submitFunction() {
     url: queryURL,
     dataType: "json",
     method: "GET"
-  }).then(function (response) {
+  }).then(function(response) {
     let routes = response.routes;
-    console.log(response);
     let distance = routes[0].legs[0].distance.text;
     let duration = routes[0].legs[0].duration.text;
 
@@ -133,7 +140,7 @@ function calculateRoute(start, end) {
     travelMode: google.maps.DirectionsTravelMode.DRIVING,
     unitSystem: google.maps.UnitSystem.METRIC
   };
-  directionsService.route(directionsRequest, function (response, status) {
+  directionsService.route(directionsRequest, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       new google.maps.DirectionsRenderer({
         map: mapObject,
@@ -144,25 +151,28 @@ function calculateRoute(start, end) {
 }
 
 function calculateRoute2() {
-  L.mapquest.directions().route({
-    start: startInput,
-    end: endInput
-  }, function (err, data) {
-    if (err.message)
-      console.log(err);
-    else {
-      if (mapQuestLayer) {
-        map2.removeLayer(mapQuestLayer);
+  L.mapquest.directions().route(
+    {
+      start: startInput,
+      end: endInput
+    },
+    function(err, data) {
+      if (err.message) console.log(err);
+      else {
+        if (mapQuestLayer) {
+          map2.removeLayer(mapQuestLayer);
+        }
+        mapQuestLayer = L.mapquest
+          .directionsLayer({
+            directionsResponse: data
+          })
+          .addTo(map2);
       }
-      mapQuestLayer = L.mapquest.directionsLayer({
-        directionsResponse: data
-      }).addTo(map2);
     }
-  });
-
+  );
 }
 
-L.mapquest.key = 'C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0';
+L.mapquest.key = "C1a3TOmczQOtn6JOIApQAx3vJ3S20kF0";
 
 map2 = L.mapquest.map("hybrid", {
   center: [30.266926, -97.750519],
