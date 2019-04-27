@@ -1,7 +1,7 @@
 /* Google Map Styles */
 #map {
-    height: 500px;
-    width: 100%;
+  height: 500px;
+  width: 100%;
 }
 
 #hybrid {
@@ -10,37 +10,38 @@
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: #aed581;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #aed581;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
 
 span {
   position: absolute;
-top: 5px;
-left: 5px;
+  top: 5px;
+  left: 5px;
 }
 
-.pathfinder{
-    margin: 0 auto;
-    display: block;
-    margin-top: 15px;
+.pathfinder {
+  margin: 0 auto;
+  display: block;
+  margin-top: 15px;
 }
 
 .center {
-  
+
   margin-left: 45%;
   margin-right: auto;
   margin-bottom: 20px;
   margin-top: 0px;
-  
+
 }
 
 h1 {
-  font-family: "Avenir Next" !important;
+  /* font-family: 'Times New Roman', Times, serif */
+  font-family: 'Roboto', sans-serif;
 }

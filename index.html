@@ -1,105 +1,109 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!--Icon Import-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Mapquest-->
-    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-    <link rel="stylesheet" href="assets/style/style.css">
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>PathFinder</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Icon Import-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Mapquest-->
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+  <link rel="stylesheet" href="assets/style/style.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <div class="row">
-      <div class="col s12 m6 offset-m3">
-        <div class="card">
-          <div class="card-image">
-            <img src="assets/style/images/pathfinder_image_logo.png">
-            <span class="card-title">PathFinder</span>
-          </div>
-          <div class="card-content">
-            <p>Allow users to compare routes...</p>
-          </div>
-          <div class="card-action">
-            <a href="#">
-                <button data-target="idlogin" class="btn modal-trigger">Log In</button>
-                <button data-target="idsignup" class="btn modal-trigger">Sign-Up</button>
-             </a>
-          </div>
+  <title>PathFinder</title>
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col s12 m6 offset-m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="assets/style/images/pathfinder_image_logo.png">
+          <span class="card-title">PathFinder</span>
+        </div>
+        <div class="card-content">
+          <p>Allow users to compare routes...</p>
+        </div>
+        <div class="card-action">
+          <a href="#">
+            <button data-target="idlogin" class="btn modal-trigger">Log In</button>
+            <button data-target="idsignup" class="btn modal-trigger">Sign-Up</button>
+          </a>
         </div>
       </div>
     </div>
-              
-    
+  </div>
 
-    
 
-    <div id="idlogin" class="modal">
 
-      <form id="login-form" action="/main.html">
-        <div class="imgcontainer">
-          <span id="idlogin-close">
-            <i class="material-icons">close</i>
-          </span>
-          <img src="./assets/style/images/pathfinder_black.png"  height="80" width="80" alt="PathFinder" class="pathfinder">
+
+
+  <div id="idlogin" class="modal">
+
+    <form id="login-form" action="/main.html">
+      <div class="imgcontainer">
+        <span id="idlogin-close">
+          <i class="material-icons">close</i>
+        </span>
+        <img src="./assets/style/images/pathfinder_black.png" height="80" width="80" alt="PathFinder"
+          class="pathfinder">
+      </div>
+      <div class="modal-content">
+        <h4>Log In</h4>
+        <br />
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
         </div>
-        <div class="modal-content">
-          <h4>Log In</h4>
-          <br />
-          <div class="input-field">
-            <input type="email" id="login-email" required />
-            <label for="login-email">Email address</label>
-          </div>
-          <div class="input-field">
-            <input type="password" id="login-password" required />
-            <label for="login-password">Your password</label>
-          </div>
-          <button class="btn yellow darken-2 z-depth-0" type="submit">Log In</button>
-          <p class="error pink-text center-align"></p>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
         </div>
-      </form>
-    </div>
+        <button class="btn yellow darken-2 z-depth-0" type="submit">Log In</button>
+        <p class="error pink-text center-align"></p>
+      </div>
+    </form>
+  </div>
 
 
-    <div id="idsignup" class="modal">
+  <div id="idsignup" class="modal">
 
-      <form id="signup-form" action='/main.html'>
-        <div class="imgcontainer">
-          <span id="idsignup-close">
-            <i class="material-icons">close</i>
-          </span>
-          <img src="./assets/style/images/pathfinder_black.png"  height="80" width="80" alt="PathFinder" class="pathfinder">
+    <form id="signup-form" action='/main.html'>
+      <div class="imgcontainer">
+        <span id="idsignup-close">
+          <i class="material-icons">close</i>
+        </span>
+        <img src="./assets/style/images/pathfinder_black.png" height="80" width="80" alt="PathFinder"
+          class="pathfinder">
+      </div>
+
+      <div class="container">
+
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
         </div>
-
-        <div class="container">
-          
-            <div class="input-field">
-              <input type="email" id="signup-email" required />
-              <label for="signup-email">Email address</label>
-            </div>
-            <div class="input-field">
-              <input type="password" id="signup-password" required />
-              <label for="signup-password">Choose password</label>
-            </div>
-            <div class="input-field">
-              <input type="text" id="signup-bio" required />
-              <label for="signup-bio">One Line Bio</label>
-            </div>
-            <button class="btn yellow darken-2 z-depth-0" type="submit">Sign up</button>
-            <p class="error pink-text center-align"></p>
-      
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
         </div>
-      </form>  
-    </div>
+        <div class="input-field">
+          <input type="text" id="signup-bio" required />
+          <label for="signup-bio">One Line Bio</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0" type="submit">Sign up</button>
+        <p class="error pink-text center-align"></p>
+
+      </div>
+    </form>
+  </div>
 
 
 
@@ -121,16 +125,17 @@
     };
     firebase.initializeApp(config);
 
-      // Make auth and firestore reference
-      const auth = firebase.auth();
-      const db = firebase.firestore();
+    // Make auth and firestore reference
+    const auth = firebase.auth();
+    const db = firebase.firestore();
 
-    
-      // update firestore settings
-      // db.settings({ timestampsInSnapshots: true });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="assets/javascript/auth.js"></script>
-    <script src="assets/javascript/index.js"></script>
-    </body>
+
+    // update firestore settings
+    // db.settings({ timestampsInSnapshots: true });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="assets/javascript/auth.js"></script>
+  <script src="assets/javascript/index.js"></script>
+</body>
+
 </html>
